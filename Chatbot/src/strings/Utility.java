@@ -23,11 +23,23 @@ public class Utility{
   }
   
   public static boolean keywordIsIsolated(int psn, String keyword, String s){
-    return true;
+    int lastIndexOfWord = keyword.length() + psn;
+    if(lastIndexOfWord == s.length()) {
+    	return true;
+    }
+    if(s.substring(lastIndexOfWord+1, lastIndexOfWord+2).compareTo("a") < 0) {
+    	return true;
+    }
+    return false;
   }
   
   public static boolean noNegations(String s, int psn){
-    return true;
+	if(psn>4) {
+		if(s.substring(psn-3,psn-1).equals("no") || s.substring(psn-4,psn-1).equals("not")) {
+			return false;
+		}
+	}
+	return true;
   }
   
   
