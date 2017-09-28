@@ -31,5 +31,5 @@ public class Chatbot {
 		userName = "unknown user";
 		chatting = true;
 	}
- 
+
 }
