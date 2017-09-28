@@ -10,7 +10,7 @@ public class ChatbotMain {
 		{
 			chatbot.startTalking();
 		}
-		
+		 
 		//pasted from class notes "Utility"
 		
 		private static Scanner inputSource = new Scanner(System.in);
