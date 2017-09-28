@@ -22,6 +22,32 @@ public class Utility{
     
   }
   
+  //this method returns index of keyword in the searchString where keyword is isolated and has no negations
+  //it returns -1 if keyword is not found
+  public static int findKeyword(String searchString, String keyword, int startPsn)
+  {
+	  //makes searchSting lower case
+	  searchString = searchString.toLowerCase();
+	  keyword = keyword.toLowerCase();
+	  //find the first position after the startPsn
+	  int psn = searchString.indexOf(keyword, startPsn);
+	  
+	  //keep searching until keyword is found (noNegations and isolated)
+	  while(psn >= 0)
+	  {
+		  if(keywordIsIsolated(psn, keyword, searchString) && noNegations(searchString,psn))
+		  {
+			  return psn;
+		  }
+		  else
+		  {
+			  //look for the next occurrence
+			  psn = searchString.indexOf(keyword, psn+1);
+		  }
+		  return -1;
+	  }
+  }
+  
   public static boolean keywordIsIsolated(int psn, String keyword, String s){
     int lastIndexOfWord = keyword.length() + psn;
     if(lastIndexOfWord == s.length()) {
