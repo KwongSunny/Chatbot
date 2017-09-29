@@ -6,9 +6,18 @@ public class Chatbot {
 	private Topic sunny;
 	private boolean chatting;
 	
-	public void startTalking() {
+	public Chatbot()
+	{
+		sunny = new ChatbotSunny();
+		userName = "unknown user";
+		chatting = true;
+	}
+	
+	public void startTalking() 
+	{
 		ChatbotMain.print("Welcome to our chatbot! What is your name?");
 		userName = ChatbotMain.getInput();
+		chatting = true;
 		while(chatting)
 		{
 			ChatbotMain.print("What do you want to talk about?");
@@ -16,7 +25,7 @@ public class Chatbot {
 			if(sunny.isTriggered(response))
 			{
 				chatting = false;
-				sunny.startChatting();
+				sunny.startChatting(response);
 			}
 			else
 			{
@@ -24,12 +33,4 @@ public class Chatbot {
 			}
 		}
 	}
-	
-	public Chatbot()
-	{
-		sunny = new ChatbotSunny();
-		userName = "unknown user";
-		chatting = true;
-	}
-
 }

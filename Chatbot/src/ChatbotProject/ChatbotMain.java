@@ -37,8 +37,8 @@ public class ChatbotMain {
 					  //look for the next occurrence
 					  psn = searchString.indexOf(keyword, psn+1);
 				  }
-				  return -1;
 			  }
+			  return -1;
 		  }
 		  
 		  public static boolean keywordIsIsolated(int psn, String keyword, String s){
